@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ blog.title }}</title>
+</head>
+<body>
+
+    <div id="simpleBlog">
+        <h3>Title: {{blog.title}}</h3>
+        <h3>Likes: [[likes]]</h3>   <!--Vue js variable-->
+        <button type="button" @click.prevent="likeBlog('{{ blog.id }}')">Like Blog</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var blog_likes = {{ blog.likes }}
+    </script>
+    <script src="{% static 'blog/blog.js' %}"></script>
+</body>
+</html>
